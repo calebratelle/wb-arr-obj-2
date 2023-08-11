@@ -44,7 +44,11 @@ const prices = [15.0, 23.0, 78.0, 34.0, 12.0, 86.0, 12.0, 79.0, 32.0];
 */
 
 //Code Here
-let postTaxPrices; // = prices.map(/* Provide Your Callback Here );
+let postTaxPrices = prices.map(function(r){
+  console.log(r)
+  return r * 1.07
+
+});
 
 ////////// PROBLEM 3 //////////
 
@@ -61,7 +65,9 @@ const populations = [8175133, 3792621, 2695598, 2100263];
 */
 
 //Code Here
-let totalPopulation; //  = populations.reduce(/* Provide Your Callback Here */)
+let totalPopulation= populations.reduce(function(runningTotal, curElement){
+  return runningTotal += curElement
+})
 
 ////////// PROBLEM 4 //////////
 
@@ -95,6 +101,7 @@ const monstersInYourPocket = [
 ];
 // Do not edit the code above.
 
+
 /*
   Now we're going to ramp these up a little bit.
   Instead of just arrays of numbers, we are going to have array of objects that we want to use map, filter, and reduce with.
@@ -102,8 +109,9 @@ const monstersInYourPocket = [
   Use the filter method to return only the monsters that have a CP of over 200.
 */
 
-//Code Here
-let myStrongest; // = monstersInYourPocket.filter(/* Provide Your Callback Here */)
+let myStrongest = monstersInYourPocket.filter(function(obj){
+  return obj.CP > 200
+})
 
 ////////// PROBLEM 5 //////////
 
@@ -126,7 +134,9 @@ const orders = [
   Use a higher order method to get all the order totals after adding in the sales tax (given to you as a tax rate, hint: you'll need to do some multiplication). Your answer should be an array of numbers, one total for each order.
 */
 
-let orderTotals; // Code here
+let orderTotals= orders.map(function(obj){
+return obj.price + (obj.price * obj.tax)
+})
 
 ////////// PROBLEM 6 //////////
 
@@ -159,4 +169,8 @@ const purchases = [
   Use a high order method to create to get the sum of bobsTotal.
 */
 
-let bobsTotal; //Code Here
+bobsTotal = purchases.reduce((acc, obj) => {
+  return obj.owner === "Bob"? acc + obj.price: acc;
+}, 0);
+
+console.log(bobsTotal)

@@ -31,7 +31,7 @@ const {color, make, model, year} = carDetails
   The property names are firstName, lastName, and title.
 */
 
-function greeting(obj) {
+greeting=(obj)=>{
   const {firstName, lastName, title} = obj
 
   // Do not edit the code below.
